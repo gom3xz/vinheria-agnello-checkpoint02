@@ -10,7 +10,7 @@ function validarTexto(mensagem) {
     return valor.trim();
 }
 
-// Valida entradas numéricas respeitando os limites informados
+// Valida entradas numéricas inteiras respeitando os limites informados
 function validarNumero(mensagem, minimo, maximo) {
     let valor = prompt(mensagem);
     let numero = Number(valor);
@@ -19,10 +19,11 @@ function validarNumero(mensagem, minimo, maximo) {
         valor === null ||
         valor.trim() === "" ||
         isNaN(numero) ||
+        !Number.isInteger(numero) ||
         numero < minimo ||
         numero > maximo
     ) {
-        alert("Digite um valor válido.");
+        alert("Digite um número inteiro válido.");
         valor = prompt(mensagem);
         numero = Number(valor);
     }
@@ -36,12 +37,15 @@ function perguntarSimNao(mensagem) {
 
     while (
         resposta === null ||
-        (resposta.toLowerCase() !== "s" && resposta.toLowerCase() !== "n")
+        (
+            resposta.trim().toLowerCase() !== "s" &&
+            resposta.trim().toLowerCase() !== "n"
+        )
     ) {
         resposta = prompt("Digite apenas 's' para sim ou 'n' para não:");
     }
 
-    return resposta.toLowerCase();
+    return resposta.trim().toLowerCase();
 }
 
 // Considera estoque baixo quando existem menos de 5 unidades
