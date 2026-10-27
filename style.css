@@ -5,43 +5,96 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
-    color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Imagem de fundo de uma adega/barris de vinho com sobreposição escura */
+    background: linear-gradient(rgba(13, 13, 13, 0.8), rgba(26, 11, 20, 0.85)), 
+                url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #e0e0e0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
-main {
+.card-container {
+    position: relative;
+    z-index: 2;
     text-align: center;
-    background: #2a2a2a;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    background: rgba(26, 26, 26, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(128, 0, 32, 0.4);
+    padding: 50px 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    max-width: 480px;
+    width: 90%;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.badge {
+    display: inline-block;
+    background-color: rgba(128, 0, 32, 0.3);
+    color: #ff4d6d;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 77, 109, 0.4);
 }
 
 h1 {
-    color: #800020;
-    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
 }
 
 p {
-    margin-bottom: 20px;
-    color: #ccc;
+    margin-bottom: 30px;
+    color: #b0b0b0;
+    font-size: 15px;
+    line-height: 1.6;
 }
 
 button {
-    background-color: #800020;
+    background: linear-gradient(135deg, #800020, #540015);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 14px 28px;
     font-size: 16px;
-    border-radius: 4px;
+    font-weight: 600;
+    border-radius: 8px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(128, 0, 32, 0.4);
+    width: 100%;
 }
 
 button:hover {
-    background-color: #a00028;
+    background: linear-gradient(135deg, #a00028, #6e001c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(128, 0, 32, 0.6);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
