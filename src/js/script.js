@@ -110,6 +110,9 @@ document.getElementById("btnIniciar").addEventListener("click", function () {
 // Limpa os cards de um cadastro anterior
 document.getElementById("lista-vinhos").innerHTML = "";
 
+    // Limpa o resumo de um cadastro anterior
+    document.getElementById("painel-resumo").innerHTML = "";
+
     // Contadores usados para gerar o resumo final
     let totalCadastros = 0;
     let totalEstoqueBaixo = 0;
@@ -189,6 +192,31 @@ document.getElementById("lista-vinhos").innerHTML = "";
         }
     mostrarVinhoNaPagina(nome, safra, quantidade);   
     }
+
+// Mostra o resumo também na página
+    mostrarResumoNaPagina(
+        totalCadastros,
+        totalEstoqueBaixo,
+        nomeMaisAntigo,
+        safraMaisAntiga
+    );
+    
+// Preenche o painel de resumo com os números finais do cadastro
+function mostrarResumoNaPagina(total, estoqueBaixo, nomeAntigo, safraAntiga) {
+    document.getElementById("painel-resumo").innerHTML =
+        "<div class='resumo-caixa'>" +
+            "<strong>" + total + "</strong>" +
+            "<span>Cadastros</span>" +
+        "</div>" +
+        "<div class='resumo-caixa'>" +
+            "<strong>" + estoqueBaixo + "</strong>" +
+            "<span>Estoque baixo</span>" +
+        "</div>" +
+        "<div class='resumo-caixa'>" +
+            "<strong>" + safraAntiga + "</strong>" +
+            "<span>Mais antiga: " + nomeAntigo + "</span>" +
+        "</div>";
+}
 
     // Monta o resumo final do sistema
     const resumo =
