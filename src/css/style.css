@@ -768,3 +768,24 @@ button:focus-visible {
     background: linear-gradient(145deg, #2f5a3c, #14281b);
     border-top-color: #7ca783;
 }
+
+/* ========================================
+   ÍCONES E QUEBRA DE TEXTO
+======================================== */
+
+.feature i {
+    color: var(--gold);
+    font-size: 11px;
+}
+
+/* Evita que nomes longos estourem o card de resumo */
+.resumo-caixa span {
+    overflow-wrap: anywhere;
+}
+
+/* Símbolo ® maior, já que o rodapé usa fonte pequena */
+.registrado {
+    font-size: 13px;
+    letter-spacing: 0;
+    vertical-align: middle;
+}
