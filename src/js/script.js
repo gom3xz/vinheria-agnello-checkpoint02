@@ -106,6 +106,9 @@ function mostrarVinhoNaPagina(nome, safra, quantidade) {
 
 // Inicia o fluxo principal de cadastro dos vinhos
 document.getElementById("btnIniciar").addEventListener("click", function () {
+    
+// Limpa os cards de um cadastro anterior
+document.getElementById("lista-vinhos").innerHTML = "";
 
     // Contadores usados para gerar o resumo final
     let totalCadastros = 0;
@@ -182,8 +185,9 @@ document.getElementById("btnIniciar").addEventListener("click", function () {
         if (totalCadastros < 5) {
             continuar = perguntarSimNao(
                 "Deseja cadastrar outro vinho? (s/n)"
-            );
+            );    
         }
+    mostrarVinhoNaPagina(nome, safra, quantidade);   
     }
 
     // Monta o resumo final do sistema
