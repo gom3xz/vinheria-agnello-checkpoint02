@@ -1,19 +1,121 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinheria Agnello | Sistema de Estoque</title>
+
+    <meta name="theme-color" content="#160b10">
+    <meta name="description" content="Sistema inteligente de gestão e classificação de vinhos da Vinheria Agnello.">
+
+    <title>Vinheria Agnello | Gestão de Vinhos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./src/css/style.css">
 </head>
+
 <body>
     <div class="vinho-bg"></div>
-    
+    <div class="overlay"></div>
+
+    <header class="topbar">
+        <a href="#" class="brand">
+            <span class="brand-icon">A</span>
+
+            <span class="brand-text">
+                <strong>AGNELLO</strong>
+                <small>VINHERIA</small>
+            </span>
+        </a>
+
+        <div class="system-status">
+            <span class="status-dot"></span>
+            SISTEMA DE GESTÃO
+        </div>
+    </header>
+
     <main class="card-container">
-        <h1>Vinheria Agnello</h1>
-        <p>Sistema inteligente de avaliação de estoque, classificação de safras e controle de tendências de vinhos.</p>
-        <button id="btnIniciar">Iniciar Sistema</button>
+
+        <div class="eyebrow">
+            <span class="eyebrow-line"></span>
+            <span>TRADIÇÃO & EXCELÊNCIA</span>
+            <span class="eyebrow-line"></span>
+        </div>
+
+        <div class="wine-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 8H43L40 29C39 36 35 40 32 40C29 40 25 36 24 29L21 8Z"
+                      stroke="currentColor" stroke-width="1.5"/>
+                <path d="M24 24H40"
+                      stroke="currentColor" stroke-width="1.5"/>
+                <path d="M32 40V53M23 56H41M27 53H37"
+                      stroke="currentColor" stroke-width="1.5"
+                      stroke-linecap="round"/>
+                <path d="M25 28C29 26 35 30 39 27"
+                      stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+        </div>
+
+        <h1>Vinheria <span>Agnello</span></h1>
+
+        <p class="subtitle">
+            A arte de preservar cada safra.
+        </p>
+
+        <div class="divider">
+            <span></span>
+            <span class="divider-diamond">◆</span>
+            <span></span>
+        </div>
+
+        <p class="description">
+            Gerencie seu estoque com inteligência, classifique safras
+            e descubra quais rótulos merecem atenção especial.
+            Tudo em um só lugar.
+        </p>
+
+        <button id="btnIniciar" type="button">
+            <span>Iniciar sistema</span>
+            <span class="button-arrow" aria-hidden="true">→</span>
+        </button>
+
+        <div class="features">
+            <div class="feature">
+                <span class="feature-number">01</span>
+                <span>Estoque</span>
+            </div>
+
+            <span class="feature-separator"></span>
+
+            <div class="feature">
+                <span class="feature-number">02</span>
+                <span>Safras</span>
+            </div>
+
+            <span class="feature-separator"></span>
+
+            <div class="feature">
+                <span class="feature-number">03</span>
+                <span>Relatórios</span>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <span>GESTÃO INTELIGENTE DE VINHOS</span>
+            <span>EST. AGNELLO</span>
+        </div>
+
     </main>
+
+    <footer class="page-footer">
+        <span>VINHERIA AGNELLO</span>
+        <span class="footer-dot">•</span>
+        <span>QUALIDADE EM CADA DETALHE</span>
+    </footer>
 
     <script src="./src/js/script.js"></script>
 </body>
