@@ -1,100 +1,620 @@
+
+/* ========================================
+   VINHERIA AGNELLO — IDENTIDADE VISUAL
+======================================== */
+
+:root {
+    --wine: #801d36;
+    --wine-light: #a32e4b;
+    --wine-dark: #3c101e;
+    --gold: #c6a76a;
+    --gold-light: #e4d0a0;
+    --cream: #f4eee4;
+    --muted: #b5a9a6;
+    --background: #160b10;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    min-height: 100%;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Imagem de fundo de uma adega/barris de vinho com sobreposição escura */
-    background: linear-gradient(rgba(13, 13, 13, 0.8), rgba(26, 11, 20, 0.85)), 
-                url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1920&auto=format&fit=crop');
+    font-family: 'DM Sans', sans-serif;
+    background: var(--background);
+    color: var(--cream);
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 110px 24px 80px;
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+}
+
+/* ========================================
+   FUNDO
+======================================== */
+
+.vinho-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+
+    background-image: url(
+        'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1920&auto=format&fit=crop'
+    );
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: #e0e0e0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
+
+    transform: scale(1.04);
+    animation: backgroundReveal 1.5s ease-out both;
 }
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 40%,
+            rgba(92, 24, 43, 0.35),
+            transparent 65%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(13, 7, 10, 0.82),
+            rgba(21, 8, 14, 0.79) 50%,
+            rgba(9, 6, 8, 0.91)
+        );
+}
+
+/* ========================================
+   BARRA SUPERIOR
+======================================== */
+
+.topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    padding: 28px 6%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid rgba(198, 167, 106, 0.13);
+
+    animation: fadeIn 0.8s ease-out both;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+.brand-icon {
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+
+    color: var(--gold-light);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.brand-text strong {
+    font-size: 14px;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.brand-text small {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold);
+}
+
+.system-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #d0c4bd;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    background: #7ca783;
+    border-radius: 50%;
+
+    box-shadow: 0 0 10px rgba(124, 167, 131, 0.45);
+}
+
+/* ========================================
+   CARTÃO PRINCIPAL
+======================================== */
 
 .card-container {
     position: relative;
-    z-index: 2;
+    width: min(100%, 540px);
+
+    padding: 45px 54px 28px;
+
     text-align: center;
-    background: rgba(26, 26, 26, 0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(128, 0, 32, 0.4);
-    padding: 50px 40px;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-    max-width: 480px;
-    width: 90%;
-    animation: fadeIn 0.8s ease-out;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(37, 22, 28, 0.92),
+            rgba(19, 12, 16, 0.94)
+        );
+
+    border: 1px solid rgba(198, 167, 106, 0.34);
+    border-radius: 5px;
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.5),
+        inset 0 0 40px rgba(128, 29, 54, 0.06);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    animation: cardReveal 0.9s ease-out both;
 }
 
-.badge {
-    display: inline-block;
-    background-color: rgba(128, 0, 32, 0.3);
-    color: #ff4d6d;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    padding: 6px 12px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    border: 1px solid rgba(255, 77, 109, 0.4);
+.card-container::before {
+    content: "";
+
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    right: 7px;
+    bottom: 7px;
+
+    border: 1px solid rgba(198, 167, 106, 0.09);
+    pointer-events: none;
 }
+
+/* ========================================
+   DETALHES DECORATIVOS
+======================================== */
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+
+    margin-bottom: 25px;
+
+    color: var(--gold);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.eyebrow-line {
+    width: 25px;
+    height: 1px;
+
+    background: var(--gold);
+    opacity: 0.7;
+}
+
+.wine-icon {
+    width: 67px;
+    height: 67px;
+
+    display: grid;
+    place-items: center;
+
+    margin: 0 auto 20px;
+
+    color: var(--gold-light);
+
+    border: 1px solid rgba(198, 167, 106, 0.45);
+    border-radius: 50%;
+
+    background: rgba(198, 167, 106, 0.045);
+}
+
+.wine-icon svg {
+    width: 42px;
+    height: 42px;
+}
+
+/* ========================================
+   TIPOGRAFIA
+======================================== */
 
 h1 {
-    color: #ffffff;
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    letter-spacing: 0.5px;
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(36px, 6vw, 49px);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.8px;
+
+    color: #fffaf1;
 }
 
-p {
-    margin-bottom: 30px;
-    color: #b0b0b0;
-    font-size: 15px;
-    line-height: 1.6;
+h1 span {
+    color: var(--gold-light);
 }
+
+.subtitle {
+    margin-top: 12px;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-style: italic;
+
+    color: var(--gold);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    margin: 23px auto;
+}
+
+.divider > span:not(.divider-diamond) {
+    width: 48px;
+    height: 1px;
+
+    background: rgba(198, 167, 106, 0.45);
+}
+
+.divider-diamond {
+    font-size: 9px;
+    color: var(--gold);
+}
+
+.description {
+    max-width: 370px;
+    margin: 0 auto 30px;
+
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    font-weight: 400;
+}
+
+/* ========================================
+   BOTÃO PRINCIPAL
+======================================== */
 
 button {
-    background: linear-gradient(135deg, #800020, #540015);
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(128, 0, 32, 0.4);
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
     width: 100%;
+    min-height: 55px;
+    padding: 15px 22px;
+
+    border: 1px solid rgba(228, 208, 160, 0.45);
+    border-radius: 3px;
+
+    background: linear-gradient(
+        115deg,
+        #762039,
+        #591529 70%,
+        #491120
+    );
+
+    color: #fffaf1;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.button-arrow {
+    position: absolute;
+    right: 20px;
+
+    font-size: 19px;
+    font-weight: 400;
+
+    color: var(--gold-light);
+
+    transition: transform 0.3s ease;
 }
 
 button:hover {
-    background: linear-gradient(135deg, #a00028, #6e001c);
+    background: linear-gradient(
+        115deg,
+        #9a2b48,
+        #762039
+    );
+
+    border-color: var(--gold-light);
+
+    box-shadow:
+        0 10px 30px rgba(128, 29, 54, 0.3),
+        0 0 20px rgba(198, 167, 106, 0.06);
+
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(128, 0, 32, 0.6);
+}
+
+button:hover .button-arrow {
+    transform: translateX(5px);
 }
 
 button:active {
     transform: translateY(0);
 }
 
+button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 4px;
+}
+
+/* ========================================
+   FUNCIONALIDADES
+======================================== */
+
+.features {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 19px;
+
+    margin-top: 30px;
+    padding: 0 0 24px;
+
+    color: #d5c9c3;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    white-space: nowrap;
+    font-size: 10px;
+}
+
+.feature-number {
+    color: var(--gold);
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.feature-separator {
+    width: 1px;
+    height: 16px;
+
+    background: rgba(198, 167, 106, 0.28);
+}
+
+/* ========================================
+   RODAPÉS
+======================================== */
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding-top: 17px;
+
+    border-top: 1px solid rgba(198, 167, 106, 0.16);
+
+    color: #847772;
+    font-size: 8px;
+    letter-spacing: 1.3px;
+}
+
+.page-footer {
+    position: absolute;
+    bottom: 23px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    color: rgba(231, 218, 206, 0.56);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.footer-dot {
+    color: var(--gold);
+}
+
+/* ========================================
+   ANIMAÇÕES
+======================================== */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
     }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes backgroundReveal {
+    from {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.04);
+    }
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 600px) {
+    body {
+        padding: 100px 16px 75px;
+    }
+
+    .topbar {
+        padding: 20px 22px;
+    }
+
+    .brand-icon {
+        width: 37px;
+        height: 37px;
+        font-size: 23px;
+    }
+
+    .brand-text strong {
+        font-size: 12px;
+    }
+
+    .system-status {
+        font-size: 8px;
+        letter-spacing: 0.8px;
+        gap: 6px;
+    }
+
+    .card-container {
+        padding: 36px 23px 24px;
+    }
+
+    .eyebrow {
+        font-size: 8px;
+        letter-spacing: 2px;
+        gap: 8px;
+    }
+
+    h1 {
+        font-size: 39px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    .features {
+        gap: 11px;
+    }
+
+    .feature {
+        gap: 5px;
+        font-size: 9px;
+    }
+
+    .card-footer {
+        font-size: 7px;
+        letter-spacing: 0.7px;
+    }
+
+    .page-footer {
+        font-size: 7px;
+        letter-spacing: 1px;
+        gap: 7px;
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .system-status {
+        font-size: 7px;
+    }
+
+    .card-container {
+        padding-right: 17px;
+        padding-left: 17px;
+    }
+
+    .features {
+        gap: 7px;
+    }
+
+    .feature {
+        font-size: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }
