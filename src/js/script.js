@@ -85,6 +85,25 @@ function mostrarDadosVinho(nome, safra, quantidade) {
     alert(mensagem);
 }
 
+// Monta o card do vinho como texto HTML e adiciona na lista da página
+function mostrarVinhoNaPagina(nome, safra, quantidade) {
+    let classeEstoque = "";
+
+    // Destaca em vermelho quando o estoque está baixo
+    if (verificarEstoqueBaixo(quantidade)) {
+        classeEstoque = "estoque-baixo";
+    }
+
+    document.getElementById("lista-vinhos").innerHTML +=
+        "<article class='vinho-card'>" +
+            "<div class='vinho-info'>" +
+                "<h3>" + nome + "</h3>" +
+                "<p>Safra " + safra + " • " + classificarVinho(safra) + "</p>" +
+                "<p class='" + classeEstoque + "'>Estoque: " + quantidade + " un.</p>" +
+            "</div>" +
+        "</article>";
+}
+
 // Inicia o fluxo principal de cadastro dos vinhos
 document.getElementById("btnIniciar").addEventListener("click", function () {
 
